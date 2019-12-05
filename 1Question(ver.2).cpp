@@ -1,13 +1,14 @@
 #include <iostream>
 #include <algorithm>
+#include <vector>
 
 using namespace std;
 
-bool checkArray(int arr[], const int &arrSize, const int &nr)
+bool checkArray(vector<int> arr, const int &nr)
 {
-    sort(arr, arr + arrSize);
+    sort(arr.begin(), arr.end());
     int begi = 0;
-    int endi = arrSize-1;
+    int endi = arr.size()-1;
 
     while(begi<endi)
     {
@@ -22,14 +23,13 @@ bool checkArray(int arr[], const int &arrSize, const int &nr)
 int main()
 {
 
-    int arr[] = {2, 20, 19, 12, 8, 7, 3};
-    int arrSize = sizeof(arr)/sizeof(arr[0]);
+    vector<int> arr = {2, 20, 19, 12, 8, 7, 3};
 
     int sum;
     cout << "Give a number" << endl;
     cin >> sum;
 
-    if (checkArray(arr, arrSize, sum)) cout << "true";
+    if (checkArray(arr,  sum)) cout << "true";
     else cout << "false";
 
     return 0;
